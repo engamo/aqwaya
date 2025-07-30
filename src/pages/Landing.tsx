@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/button";
@@ -146,7 +144,7 @@ const Landing = () => {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/logo.png" 
+                src="/lovable-uploads/b67bb26d-47d3-46b7-924a-71e4ce2a1981.png" 
                 alt="Aqwaya Logo" 
                 className="w-16 h-16"
               />
@@ -321,7 +319,7 @@ const Landing = () => {
               </div>
               
               <img 
-                src="/dashboard.png" 
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
                 alt="Aqwaya Dashboard Preview" 
                 className="w-full rounded-xl"
               />
@@ -486,7 +484,7 @@ const Landing = () => {
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="/logo.png" 
+                  src="/lovable-uploads/ef3a9cec-c514-47f9-a35e-77583be9a75e.png" 
                   alt="Aqwaya Logo" 
                   className="w-12 h-12"
                 />
