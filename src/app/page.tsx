@@ -69,7 +69,7 @@ export default function Landing() {
     return (
       <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
         <p className="text-green-800 font-semibold">
-          🎉 Success! You’ve been added to the waitlist.
+          🎉 Success! You&apos;ve been added to the waitlist.
         </p>
         <p className="text-green-600 text-sm mt-1">
           Check your email for confirmation.
@@ -206,19 +206,6 @@ export default function Landing() {
                 Aqwaya
               </span>
             </div>
-
-            {/* <div className="flex items-center space-x-3">
-              <Image
-                src="/logo.png"
-                alt="Aqwaya Logo"
-                width={64}
-                height={64}
-                className="w-16 h-16"
-              />
-              <div>
-                <span className="text-3xl font-bold text-gray-900">Aqwaya</span>
-              </div>
-            </div> */}
             <div className="flex items-center space-x-4">
               <Button
                 variant="outline"
@@ -289,99 +276,60 @@ export default function Landing() {
                     </p>
                   </CardHeader>
                   <CardContent>
-<<<<<<< HEAD
-                    <form onSubmit={handleWaitlistSignup} className="space-y-4">
-                      <div>
-                        <Label htmlFor="name" className="text-gray-700">
-                          Full Name
-                        </Label>
-                        <Input
-                          id="name"
-                          type="text"
-                          value={name}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                            setName(e.target.value)
-                          }
-                          placeholder="Enter your name"
-                          required
-                          className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-blue-500"
-                        />
+                    {!isSubmitted ? (
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                          <Label htmlFor="firstName" className="text-gray-700">
+                            First Name
+                          </Label>
+                          <Input
+                            id="firstName"
+                            type="text"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            required
+                            placeholder="Enter your first name"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="lastName" className="text-gray-700">
+                            Last Name
+                          </Label>
+                          <Input
+                            id="lastName"
+                            type="text"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            placeholder="Enter your last name"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="email" className="text-gray-700">
+                            Email Address
+                          </Label>
+                          <Input
+                            id="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            placeholder="Enter your email"
+                          />
+                        </div>
+                        <Button
+                          type="submit"
+                          className="w-full text-white font-semibold py-3"
+                          style={{ backgroundColor: "#2C2E66" }}
+                        >
+                          Join the Waitlist
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </form>
+                    ) : (
+                      <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
+                        🎉 Success! Check your email for confirmation.
                       </div>
-                      <div>
-                        <Label htmlFor="email" className="text-gray-700">
-                          Email Address
-                        </Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={email}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                            setEmail(e.target.value)
-                          }
-                          placeholder="Enter your email"
-                          required
-                          className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-blue-500"
-                        />
-                      </div>
-                      <Button
-                        type="submit"
-                        className="w-full text-white font-semibold py-3"
-                        style={{ backgroundColor: "#2C2E66" }}
-                      >
-                        Join the Waitlist
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </form>
-=======
-                  {!isSubmitted ? (
-                          <form onSubmit={handleSubmit} className="space-y-4">
-                            <div>
-                              <Label htmlFor="firstName" className="text-gray-700">First Name</Label>
-                              <Input
-                                id="firstName"
-                                type="text"
-                                value={firstName}
-                                onChange={(e) => setFirstName(e.target.value)}
-                                required
-                                placeholder="Enter your first name"
-                              />
-                            </div>
-                            <div>
-                              <Label htmlFor="lastName" className="text-gray-700">Last Name</Label>
-                              <Input
-                                id="lastName"
-                                type="text"
-                                value={lastName}
-                                onChange={(e) => setLastName(e.target.value)}
-                                placeholder="Enter your last name"
-                              />
-                            </div>
-                            <div>
-                              <Label htmlFor="email" className="text-gray-700">Email Address</Label>
-                              <Input
-                                id="email"
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                                placeholder="Enter your email"
-                              />
-                            </div>
-                            <Button
-                              type="submit"
-                              className="w-full text-white font-semibold py-3"
-                              style={{ backgroundColor: "#2C2E66" }}
-                            >
-                              Join the Waitlist
-                              <ArrowRight className="w-4 h-4 ml-2" />
-                            </Button>
-                          </form>
-                        ) : (
-                          <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
-                            🎉 Success! Check your email for confirmation.
-                          </div>
-                        )}
->>>>>>> e66664d2932206b7e582248355ccc26efa59528b
+                    )}
                     <div className="flex items-center justify-center space-x-6 mt-6 text-sm text-gray-500">
                       <div className="flex items-center space-x-1">
                         <Shield className="w-4 h-4 text-green-500" />
@@ -465,15 +413,6 @@ export default function Landing() {
                   className="object-contain rounded-xl"
                 />
               </div>
-<<<<<<< HEAD
-=======
-              
-              <img 
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-                alt="Aqwaya Dashboard Preview" 
-                className="w-full rounded-xl"
-              />
->>>>>>> e66664d2932206b7e582248355ccc26efa59528b
             </div>
 
             <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-r from-purple-500 to-blue-500">
@@ -718,10 +657,4 @@ export default function Landing() {
       </footer>
     </div>
   );
-<<<<<<< HEAD
-};
-
-export default Landing;
-=======
-};
->>>>>>> e66664d2932206b7e582248355ccc26efa59528b
+}
