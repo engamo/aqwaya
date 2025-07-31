@@ -29,18 +29,54 @@ import {
   Lightbulb,
 } from "lucide-react";
 
-const Landing = () => {
+export default function Landing() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
-  const handleWaitlistSignup = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // For waitlist - just show success message, don't redirect
-    setIsSubmitted(true);
-    console.log("Waitlist signup:", { name, email });
+
+    const formData = new FormData();
+    formData.append("FNAME", firstName);
+    formData.append("LNAME", lastName);
+    formData.append("EMAIL", email);
+
+    // Anti-bot hidden field required by Mailchimp
+    formData.append("b_49ff03a1ea102a3403d36d923_2c86b8f052", "");
+
+    try {
+      await fetch(
+        "https://gmail.us17.list-manage.com/subscribe/post-json?u=49ff03a1ea102a3403d36d923&id=2c86b8f052&c=?",
+        {
+          method: "POST",
+          mode: "no-cors", // Required since Mailchimp doesn't support CORS
+          body: formData,
+        }
+      );
+
+      // Assume success if request didn't throw
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Mailchimp submission error:", error);
+      alert("There was a problem joining the waitlist. Please try again.");
+    }
   };
+
+  if (isSubmitted) {
+    return (
+      <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
+        <p className="text-green-800 font-semibold">
+          🎉 Success! You’ve been added to the waitlist.
+        </p>
+        <p className="text-green-600 text-sm mt-1">
+          Check your email for confirmation.
+        </p>
+      </div>
+    );
+  }
 
   const features = [
     {
@@ -253,6 +289,7 @@ const Landing = () => {
                     </p>
                   </CardHeader>
                   <CardContent>
+<<<<<<< HEAD
                     <form onSubmit={handleWaitlistSignup} className="space-y-4">
                       <div>
                         <Label htmlFor="name" className="text-gray-700">
@@ -295,6 +332,56 @@ const Landing = () => {
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </form>
+=======
+                  {!isSubmitted ? (
+                          <form onSubmit={handleSubmit} className="space-y-4">
+                            <div>
+                              <Label htmlFor="firstName" className="text-gray-700">First Name</Label>
+                              <Input
+                                id="firstName"
+                                type="text"
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                required
+                                placeholder="Enter your first name"
+                              />
+                            </div>
+                            <div>
+                              <Label htmlFor="lastName" className="text-gray-700">Last Name</Label>
+                              <Input
+                                id="lastName"
+                                type="text"
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
+                                placeholder="Enter your last name"
+                              />
+                            </div>
+                            <div>
+                              <Label htmlFor="email" className="text-gray-700">Email Address</Label>
+                              <Input
+                                id="email"
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                placeholder="Enter your email"
+                              />
+                            </div>
+                            <Button
+                              type="submit"
+                              className="w-full text-white font-semibold py-3"
+                              style={{ backgroundColor: "#2C2E66" }}
+                            >
+                              Join the Waitlist
+                              <ArrowRight className="w-4 h-4 ml-2" />
+                            </Button>
+                          </form>
+                        ) : (
+                          <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
+                            🎉 Success! Check your email for confirmation.
+                          </div>
+                        )}
+>>>>>>> e66664d2932206b7e582248355ccc26efa59528b
                     <div className="flex items-center justify-center space-x-6 mt-6 text-sm text-gray-500">
                       <div className="flex items-center space-x-1">
                         <Shield className="w-4 h-4 text-green-500" />
@@ -378,6 +465,15 @@ const Landing = () => {
                   className="object-contain rounded-xl"
                 />
               </div>
+<<<<<<< HEAD
+=======
+              
+              <img 
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                alt="Aqwaya Dashboard Preview" 
+                className="w-full rounded-xl"
+              />
+>>>>>>> e66664d2932206b7e582248355ccc26efa59528b
             </div>
 
             <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-r from-purple-500 to-blue-500">
@@ -622,6 +718,10 @@ const Landing = () => {
       </footer>
     </div>
   );
+<<<<<<< HEAD
 };
 
 export default Landing;
+=======
+};
+>>>>>>> e66664d2932206b7e582248355ccc26efa59528b
