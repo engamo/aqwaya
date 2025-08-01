@@ -173,14 +173,14 @@ export default function Landing() {
       rating: 5,
     },
     {
-      name: "Michael Chen",
+      name: "Ade Mohammed",
       role: "Digital Marketing Consultant",
       content:
         "This will completely change how I deliver results for my clients. The speed and quality are impressive.",
       rating: 5,
     },
     {
-      name: "Emily Rodriguez",
+      name: "Chioma Ifeanyi",
       role: "SaaS Founder",
       content:
         "Finally, a marketing platform that understands my business without endless configuration. Can't wait for launch!",
@@ -198,14 +198,15 @@ export default function Landing() {
               <Image
                 src="/logo.png"
                 alt="Aqwaya Logo"
-                width={30}
-                height={30}
+                width={40}
+                height={40}
                 className="w-10 h-10"
               />
-              <span className="text-3xl font-semibold text-gray-900">
+              <span className="text-2xl font-semibold text-gray-900">
                 Aqwaya
               </span>
             </div>
+
             <div className="flex items-center space-x-4">
               <Button
                 variant="outline"
@@ -405,7 +406,7 @@ export default function Landing() {
                 </span>
               </div>
 
-              <div className="w-full relative aspect-[16/9] rounded-xl overflow-hidden">
+              <div className="relative w-full h-[512px] rounded-xl overflow-hidden">
                 <Image
                   src="/dashboard.png"
                   alt="Aqwaya Dashboard Preview"
@@ -601,20 +602,19 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-4">
+              <div className="flex items-center gap-2 mb-4">
                 <Image
                   src="/logo.png"
                   alt="Aqwaya Logo"
-                  width={30}
-                  height={30}
-                  className="w-16 h-16"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
                 />
-                <div>
-                  <span className="text-3xl font-bold text-gray-900">
-                    Aqwaya
-                  </span>
-                </div>
+                <span className="text-2xl font-semibold text-gray-900">
+                  Aqwaya
+                </span>
               </div>
+
               <p className="text-gray-600 max-w-md">
                 The future of marketing automation is here. Join the waitlist to
                 be among the first to experience AI-powered marketing that
