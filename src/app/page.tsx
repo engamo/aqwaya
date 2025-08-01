@@ -408,7 +408,7 @@ export default function Landing() {
 
               <div className="relative w-full h-[512px] rounded-xl overflow-hidden">
                 <Image
-                  src="/dashboard.png"
+                  src="/dashboard-preview.png"
                   alt="Aqwaya Dashboard Preview"
                   fill
                   className="object-contain rounded-xl"
