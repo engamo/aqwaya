@@ -5,20 +5,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { 
-  Zap, 
-  Globe, 
-  Mail, 
-  MessageSquare, 
-  BarChart3, 
-  Users, 
-  CheckCircle, 
+import Image from "next/image";
+import {
+  Zap,
+  MessageSquare,
+  BarChart3,
+  Users,
+  CheckCircle,
   ArrowRight,
   Star,
   Target,
   Sparkles,
   Bot,
-  Wand2,
   TrendingUp,
   Shield,
   Clock,
@@ -28,7 +26,7 @@ import {
   Rocket,
   Heart,
   Award,
-  Lightbulb
+  Lightbulb,
 } from "lucide-react";
 
 export default function Landing() {
@@ -71,7 +69,7 @@ export default function Landing() {
     return (
       <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
         <p className="text-green-800 font-semibold">
-          🎉 Success! You’ve been added to the waitlist.
+          🎉 Success! You&apos;ve been added to the waitlist.
         </p>
         <p className="text-green-600 text-sm mt-1">
           Check your email for confirmation.
@@ -84,33 +82,39 @@ export default function Landing() {
     {
       icon: Bot,
       title: "AI Content Generation",
-      description: "Create compelling email campaigns, landing pages, and marketing copy in seconds with our advanced AI."
+      description:
+        "Create compelling email campaigns, landing pages, and marketing copy in seconds with our advanced AI.",
     },
     {
       icon: Zap,
       title: "Lightning-Fast Setup",
-      description: "Go from idea to live campaign in under 5 minutes. No technical skills or complex configurations required."
+      description:
+        "Go from idea to live campaign in under 5 minutes. No technical skills or complex configurations required.",
     },
     {
       icon: Target,
       title: "Smart Targeting",
-      description: "AI-powered audience segmentation and personalization that converts visitors into loyal customers."
+      description:
+        "AI-powered audience segmentation and personalization that converts visitors into loyal customers.",
     },
     {
       icon: BarChart3,
       title: "Real-Time Analytics",
-      description: "Track performance, optimize campaigns, and maximize ROI with intelligent insights and recommendations."
+      description:
+        "Track performance, optimize campaigns, and maximize ROI with intelligent insights and recommendations.",
     },
     {
       icon: MessageSquare,
       title: "Multi-Channel Marketing",
-      description: "Seamlessly manage email, SMS, WhatsApp, and social media campaigns from one unified platform."
+      description:
+        "Seamlessly manage email, SMS, WhatsApp, and social media campaigns from one unified platform.",
     },
     {
       icon: Shield,
       title: "Enterprise Security",
-      description: "Bank-grade security with GDPR compliance, ensuring your data and campaigns are always protected."
-    }
+      description:
+        "Bank-grade security with GDPR compliance, ensuring your data and campaigns are always protected.",
+    },
   ];
 
   const benefits = [
@@ -119,59 +123,69 @@ export default function Landing() {
     "Increase conversion rates by up to 300%",
     "Save $500+ monthly on marketing software",
     "24/7 AI-powered customer support",
-    "No coding or design skills required"
+    "No coding or design skills required",
   ];
 
   const faqs = [
     {
       question: "What is Aqwaya and how does it work?",
-      answer: "Aqwaya is an AI-powered marketing automation platform that helps businesses create, launch, and optimize marketing campaigns without technical expertise. Our AI generates landing pages, email sequences, and marketing copy tailored to your business needs."
+      answer:
+        "Aqwaya is an AI-powered marketing automation platform that helps businesses create, launch, and optimize marketing campaigns without technical expertise. Our AI generates landing pages, email sequences, and marketing copy tailored to your business needs.",
     },
     {
       question: "When will Aqwaya be available?",
-      answer: "We're currently in the final stages of development and testing. Beta access will be available to waitlist members in early 2024, with full launch following shortly after. Join our waitlist to be among the first to experience the platform."
+      answer:
+        "We're currently in the final stages of development and testing. Beta access will be available to waitlist members in early 2024, with full launch following shortly after. Join our waitlist to be among the first to experience the platform.",
     },
     {
       question: "What makes Aqwaya different from other marketing tools?",
-      answer: "Unlike traditional marketing platforms that require extensive setup and expertise, Aqwaya uses advanced AI to do the heavy lifting. You simply describe your business goals, and our AI creates complete marketing funnels, writes compelling copy, and optimizes for conversions automatically."
+      answer:
+        "Unlike traditional marketing platforms that require extensive setup and expertise, Aqwaya uses advanced AI to do the heavy lifting. You simply describe your business goals, and our AI creates complete marketing funnels, writes compelling copy, and optimizes for conversions automatically.",
     },
     {
       question: "Do I need technical skills to use Aqwaya?",
-      answer: "Not at all! Aqwaya is designed for business owners, marketers, and entrepreneurs without technical backgrounds. Our AI handles all the complex technical aspects, allowing you to focus on growing your business."
+      answer:
+        "Not at all! Aqwaya is designed for business owners, marketers, and entrepreneurs without technical backgrounds. Our AI handles all the complex technical aspects, allowing you to focus on growing your business.",
     },
     {
       question: "What types of businesses can benefit from Aqwaya?",
-      answer: "Aqwaya is perfect for small to medium businesses, consultants, coaches, e-commerce stores, SaaS companies, and any business looking to generate leads and increase sales online. Our AI adapts to various industries and business models."
+      answer:
+        "Aqwaya is perfect for small to medium businesses, consultants, coaches, e-commerce stores, SaaS companies, and any business looking to generate leads and increase sales online. Our AI adapts to various industries and business models.",
     },
     {
       question: "How much will Aqwaya cost?",
-      answer: "We're committed to making AI-powered marketing accessible to businesses of all sizes. Pricing will be significantly lower than purchasing multiple marketing tools separately. Waitlist members will receive special launch pricing and exclusive bonuses."
+      answer:
+        "We're committed to making AI-powered marketing accessible to businesses of all sizes. Pricing will be significantly lower than purchasing multiple marketing tools separately. Waitlist members will receive special launch pricing and exclusive bonuses.",
     },
     {
       question: "Will there be a free trial?",
-      answer: "Yes! We'll offer a comprehensive free trial so you can experience the full power of Aqwaya before committing. Waitlist members will get extended trial periods and premium features included."
-    }
+      answer:
+        "Yes! We'll offer a comprehensive free trial so you can experience the full power of Aqwaya before committing. Waitlist members will get extended trial periods and premium features included.",
+    },
   ];
 
   const testimonials = [
     {
       name: "Sarah Johnson",
       role: "E-commerce Owner",
-      content: "I've been waiting for a tool like this! The AI-generated campaigns in the demo were better than what I could create myself.",
-      rating: 5
+      content:
+        "I've been waiting for a tool like this! The AI-generated campaigns in the demo were better than what I could create myself.",
+      rating: 5,
     },
     {
-      name: "Michael Chen",
+      name: "Ade Mohammed",
       role: "Digital Marketing Consultant",
-      content: "This will completely change how I deliver results for my clients. The speed and quality are impressive.",
-      rating: 5
+      content:
+        "This will completely change how I deliver results for my clients. The speed and quality are impressive.",
+      rating: 5,
     },
     {
-      name: "Emily Rodriguez",
+      name: "Chioma Ifeanyi",
       role: "SaaS Founder",
-      content: "Finally, a marketing platform that understands my business without endless configuration. Can't wait for launch!",
-      rating: 5
-    }
+      content:
+        "Finally, a marketing platform that understands my business without endless configuration. Can't wait for launch!",
+      rating: 5,
+    },
   ];
 
   return (
@@ -180,28 +194,37 @@ export default function Landing() {
       <header className="bg-white/80 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/b67bb26d-47d3-46b7-924a-71e4ce2a1981.png" 
-                alt="Aqwaya Logo" 
-                className="w-16 h-16"
+            <div className="flex items-center justify-center">
+              <Image
+                src="/logo.png"
+                alt="Aqwaya Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
               />
-              <div>
-                <span className="text-3xl font-bold text-gray-900">Aqwaya</span>
+              <div className="flex flex-col justify-center">
+                <span className="text-2xl font-semibold text-gray-900">
+                  Aqwaya
+                </span>
               </div>
             </div>
+
             <div className="flex items-center space-x-4">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="hidden sm:flex border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900"
               >
                 <PlayCircle className="w-4 h-4 mr-2" />
                 Watch Demo
               </Button>
-              <Button 
+              <Button
                 className="text-white font-semibold"
-                style={{ backgroundColor: '#2C2E66' }}
-                onClick={() => document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth' })}
+                style={{ backgroundColor: "#2C2E66" }}
+                onClick={() =>
+                  document
+                    .getElementById("waitlist-form")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Join Waitlist
               </Button>
@@ -217,24 +240,29 @@ export default function Landing() {
             <div className="flex items-center justify-center space-x-2 mb-6">
               <div className="flex items-center space-x-1 px-4 py-2 rounded-full bg-purple-100 border border-purple-200">
                 <Rocket className="w-4 h-4 text-purple-600" />
-                <span className="text-sm font-medium text-purple-700">Coming Soon</span>
+                <span className="text-sm font-medium text-purple-700">
+                  Coming Soon
+                </span>
               </div>
               <div className="flex items-center space-x-1 px-4 py-2 rounded-full bg-green-100 border border-green-200">
                 <Users className="w-4 h-4 text-green-600" />
-                <span className="text-sm font-medium text-green-700">1,200+ on waitlist</span>
+                <span className="text-sm font-medium text-green-700">
+                  1,200+ on waitlist
+                </span>
               </div>
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900">
               AI-Powered Marketing
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                 That Actually Works
               </span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-600">
-              Create high-converting landing pages, email campaigns, and marketing funnels in minutes. 
-              No technical skills required - just describe your business and let our AI do the rest.
+              Create high-converting landing pages, email campaigns, and
+              marketing funnels in minutes. No technical skills required - just
+              describe your business and let our AI do the rest.
             </p>
 
             {/* Waitlist Form */}
@@ -251,54 +279,60 @@ export default function Landing() {
                     </p>
                   </CardHeader>
                   <CardContent>
-                  {!isSubmitted ? (
-                          <form onSubmit={handleSubmit} className="space-y-4">
-                            <div>
-                              <Label htmlFor="firstName" className="text-gray-700">First Name</Label>
-                              <Input
-                                id="firstName"
-                                type="text"
-                                value={firstName}
-                                onChange={(e) => setFirstName(e.target.value)}
-                                required
-                                placeholder="Enter your first name"
-                              />
-                            </div>
-                            <div>
-                              <Label htmlFor="lastName" className="text-gray-700">Last Name</Label>
-                              <Input
-                                id="lastName"
-                                type="text"
-                                value={lastName}
-                                onChange={(e) => setLastName(e.target.value)}
-                                placeholder="Enter your last name"
-                              />
-                            </div>
-                            <div>
-                              <Label htmlFor="email" className="text-gray-700">Email Address</Label>
-                              <Input
-                                id="email"
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                                placeholder="Enter your email"
-                              />
-                            </div>
-                            <Button
-                              type="submit"
-                              className="w-full text-white font-semibold py-3"
-                              style={{ backgroundColor: "#2C2E66" }}
-                            >
-                              Join the Waitlist
-                              <ArrowRight className="w-4 h-4 ml-2" />
-                            </Button>
-                          </form>
-                        ) : (
-                          <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
-                            🎉 Success! Check your email for confirmation.
-                          </div>
-                        )}
+                    {!isSubmitted ? (
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                          <Label htmlFor="firstName" className="text-gray-700">
+                            First Name
+                          </Label>
+                          <Input
+                            id="firstName"
+                            type="text"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            required
+                            placeholder="Enter your first name"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="lastName" className="text-gray-700">
+                            Last Name
+                          </Label>
+                          <Input
+                            id="lastName"
+                            type="text"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            placeholder="Enter your last name"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="email" className="text-gray-700">
+                            Email Address
+                          </Label>
+                          <Input
+                            id="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            placeholder="Enter your email"
+                          />
+                        </div>
+                        <Button
+                          type="submit"
+                          className="w-full text-white font-semibold py-3"
+                          style={{ backgroundColor: "#2C2E66" }}
+                        >
+                          Join the Waitlist
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </form>
+                    ) : (
+                      <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
+                        🎉 Success! Check your email for confirmation.
+                      </div>
+                    )}
                     <div className="flex items-center justify-center space-x-6 mt-6 text-sm text-gray-500">
                       <div className="flex items-center space-x-1">
                         <Shield className="w-4 h-4 text-green-500" />
@@ -319,10 +353,11 @@ export default function Landing() {
                         <CheckCircle className="w-8 h-8 text-green-600" />
                       </div>
                       <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                        You're on the list! 🎉
+                        You&apos;re on the list! 🎉
                       </h3>
                       <p className="text-sm text-gray-600">
-                        Thank you for joining our waitlist. We'll notify you as soon as Aqwaya is ready for early access.
+                        Thank you for joining our waitlist. We&apos;ll notify
+                        you as soon as Aqwaya is ready for early access.
                       </p>
                     </div>
                   </CardContent>
@@ -357,26 +392,29 @@ export default function Landing() {
               See Aqwaya in Action
             </h2>
             <p className="text-xl max-w-2xl mx-auto text-gray-600">
-              Get a glimpse of the powerful AI-driven dashboard that will transform your marketing
+              Get a glimpse of the powerful AI-driven dashboard that will
+              transform your marketing
             </p>
           </div>
-          
+
           <div className="relative">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-8 border border-gray-200">
               <div className="flex items-center space-x-2 mb-6">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <span className="ml-4 text-sm text-gray-500">dashboard.aqwaya.com</span>
+                <span className="ml-4 text-sm text-gray-500">
+                  dashboard.aqwaya.com
+                </span>
               </div>
-              
-              <img 
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-                alt="Aqwaya Dashboard Preview" 
+
+              <Image
+                src="/dashboard.png"
+                alt="Aqwaya Dashboard Preview"
                 className="w-full rounded-xl"
               />
             </div>
-            
+
             <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-r from-purple-500 to-blue-500">
               <Sparkles className="w-8 h-8 text-white" />
             </div>
@@ -392,18 +430,24 @@ export default function Landing() {
               Everything You Need to Dominate Your Market
             </h2>
             <p className="text-xl max-w-2xl mx-auto text-gray-600">
-              Replace multiple expensive marketing tools with one AI-powered platform
+              Replace multiple expensive marketing tools with one AI-powered
+              platform
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="hover:shadow-2xl transition-all duration-300 border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+              <Card
+                key={index}
+                className="hover:shadow-2xl transition-all duration-300 border-0 shadow-lg bg-white/80 backdrop-blur-sm"
+              >
                 <CardHeader>
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-r from-blue-100 to-purple-100">
                     <feature.icon className="w-7 h-7 text-blue-600" />
                   </div>
-                  <CardTitle className="text-xl text-gray-900">{feature.title}</CardTitle>
+                  <CardTitle className="text-xl text-gray-900">
+                    {feature.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">{feature.description}</p>
@@ -433,24 +477,36 @@ export default function Landing() {
                 ))}
               </div>
             </div>
-            
+
             <div className="space-y-6">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+                <Card
+                  key={index}
+                  className="border-0 shadow-lg bg-white/80 backdrop-blur-sm"
+                >
                   <CardContent className="pt-6">
                     <div className="flex items-center space-x-1 mb-3">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current text-yellow-500" />
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-current text-yellow-500"
+                        />
                       ))}
                     </div>
-                    <p className="mb-4 text-gray-700">"{testimonial.content}"</p>
+                    <p className="mb-4 text-gray-700">
+                      &quot;{testimonial.content}&quot;
+                    </p>
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500">
                         {testimonial.name.charAt(0)}
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                        <p className="text-sm text-gray-500">{testimonial.role}</p>
+                        <p className="font-semibold text-gray-900">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          {testimonial.role}
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -472,13 +528,18 @@ export default function Landing() {
               Everything you need to know about Aqwaya
             </p>
           </div>
-          
+
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+              <Card
+                key={index}
+                className="border-0 shadow-lg bg-white/80 backdrop-blur-sm"
+              >
                 <CardContent className="p-0">
                   <button
-                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                    onClick={() =>
+                      setExpandedFaq(expandedFaq === index ? null : index)
+                    }
                     className="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
                   >
                     <h3 className="text-lg font-semibold text-gray-900">
@@ -512,19 +573,25 @@ export default function Landing() {
             </h2>
           </div>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of businesses waiting for the future of AI-powered marketing automation
+            Join thousands of businesses waiting for the future of AI-powered
+            marketing automation
           </p>
-          <Button 
+          <Button
             size="lg"
             className="text-white font-semibold px-8 py-4 text-lg"
-            style={{ backgroundColor: '#2C2E66' }}
-            onClick={() => document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth' })}
+            style={{ backgroundColor: "#2C2E66" }}
+            onClick={() =>
+              document
+                .getElementById("waitlist-form")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             <Rocket className="w-5 h-5 mr-2" />
             Secure Your Spot Now
           </Button>
           <p className="text-sm text-gray-500 mt-4">
-            Free forever plan available • No credit card required • Early access guaranteed
+            Free forever plan available • No credit card required • Early access
+            guaranteed
           </p>
         </div>
       </section>
@@ -534,46 +601,61 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-4">
-                <img 
-                  src="/lovable-uploads/ef3a9cec-c514-47f9-a35e-77583be9a75e.png" 
-                  alt="Aqwaya Logo" 
-                  className="w-12 h-12"
+              <div className="flex items-center justify-center mb-4">
+                <Image
+                  src="/logo.png"
+                  alt="Aqwaya Logo"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
                 />
-                <div>
-                  <span className="text-2xl font-bold text-gray-900">Aqwaya</span>
+                <div className="flex flex-col justify-center">
+                  <span className="text-2xl font-semibold text-gray-900">
+                    Aqwaya
+                  </span>
                 </div>
               </div>
+
               <p className="text-gray-600 max-w-md">
-                The future of marketing automation is here. Join the waitlist to be among the first to experience AI-powered marketing that actually works.
+                The future of marketing automation is here. Join the waitlist to
+                be among the first to experience AI-powered marketing that
+                actually works.
               </p>
             </div>
-            
+
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-gray-900 transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Contact</a></li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition-colors">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition-colors">
+                    Contact
+                  </a>
+                </li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Cookie Policy</a></li>
+                <li>
+                  <a href="#" className="hover:text-gray-900 transition-colors">
+                    Privacy Policy
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
-            <p>© 2024 Aqwaya. All rights reserved.</p>
+            <p>&copy; 2025 Aqwaya. All rights reserved.</p>
           </div>
         </div>
       </footer>
     </div>
   );
-};
+}
