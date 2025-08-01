@@ -406,12 +406,12 @@ export default function Landing() {
                 </span>
               </div>
 
-              <div className="relative w-full h-72 sm:h-[512px] rounded-xl overflow-hidden">
+              <div className="relative w-full aspect-[16/10] sm:h-[512px] rounded-xl overflow-hidden">
                 <Image
                   src="/dashboard-preview.png"
                   alt="Aqwaya Dashboard Preview"
                   fill
-                  className="object-cover sm:object-contain rounded-xl"
+                  className="object-contain rounded-xl"
                 />
               </div>
             </div>
