@@ -1,0 +1,98 @@
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <header className="bg-white/80 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo */}
+          <div className="flex items-center text-black">
+            <Image
+              src="/logo.png"
+              alt="Aqwaya Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
+            <span className="text-3xl font-semibold text-gray-900 ml-2">
+              Aqwaya
+            </span>
+          </div>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-2">
+            <Button className="bg-white hover:bg-gray-200 py-1 px-4">
+              <a href="/about" className="text-gray-800 font-semibold">
+                About
+              </a>
+            </Button>
+            <Button className="bg-white hover:bg-gray-200 py-1 px-4">
+              <a href="/faq" className="text-gray-800 font-semibold">
+                FAQ
+              </a>
+            </Button>
+            <Button className="bg-white hover:bg-gray-200 py-1 px-4">
+              <a href="/contact" className="text-gray-800 font-semibold">
+                Contact
+              </a>
+            </Button>
+            <Button
+              className="text-white font-semibold"
+              style={{ backgroundColor: "#2C2E66" }}
+              onClick={() =>
+                document
+                  .getElementById("waitlist-form")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Join Waitlist
+            </Button>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Nav Links */}
+        {isOpen && (
+          <div className="md:hidden flex flex-col space-y-2 pb-4">
+            <a href="/about" className="text-gray-800 font-semibold block">
+              About
+            </a>
+            <a href="/faq" className="text-gray-800 font-semibold block">
+              FAQ
+            </a>
+            <a href="/contact" className="text-gray-800 font-semibold block">
+              Contact
+            </a>
+            <button
+              className="bg-[#2C2E66] text-white py-2 rounded-md"
+              onClick={() => {
+                setIsOpen(false);
+                document
+                  .getElementById("waitlist-form")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Join Waitlist
+            </button>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+}

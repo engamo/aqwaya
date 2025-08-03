@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import {
   Zap,
   MessageSquare,
@@ -22,13 +24,10 @@ import {
   Clock,
   ChevronDown,
   ChevronUp,
-  Mail,
   Rocket,
   Heart,
   Award,
   Lightbulb,
-  Twitter,
-  LinkedinIcon,
 } from "lucide-react";
 
 export default function Landing() {
@@ -193,54 +192,7 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center text-black">
-              <Image
-                src="/logo.png"
-                alt="Aqwaya Logo"
-                width={40}
-                height={40}
-                className="w-10 h-10 text-black"
-              />
-              <span className="text-3xl font-semibold text-gray-900">
-                Aqwaya
-              </span>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <Button className="bg-white/100 hover:bg-gray-200 py-1 px-4">
-                <a href="/about" className="text-gray-800 font-semibold">
-                  About
-                </a>
-              </Button>
-              <Button className="bg-white/100 hover:bg-gray-200 py-1 px-4">
-                <a href="/faq" className="text-gray-800 font-semibold">
-                  FAQ
-                </a>
-              </Button>
-              <Button className="bg-white/100 hover:bg-gray-200 py-1 px-4">
-                <a href="/contact" className="text-gray-800 font-semibold">
-                  Contact
-                </a>
-              </Button>
-
-              <Button
-                className="text-white font-semibold"
-                style={{ backgroundColor: "#2C2E66" }}
-                onClick={() =>
-                  document
-                    .getElementById("waitlist-form")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Join Waitlist
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="pt-15 px-4 sm:px-6 lg:px-8">
@@ -609,91 +561,7 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-50 pt-12 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center mb-4">
-                <Image
-                  src="/footer-logo.png"
-                  alt="Aqwaya Logo"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
-                <span className="text-3xl font-semibold text-gray-50">
-                  Aqwaya
-                </span>
-              </div>
-
-              <p className="text-gray-400 max-w-md">
-                The future of marketing automation is here. Join the waitlist to
-                be among the first to experience AI-powered marketing that
-                actually works.
-              </p>
-              <div className="flex gap-3 mt-4">
-                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 text-gray-200">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 text-gray-200">
-                  <Twitter className="w-4 h-4" />
-                </div>
-                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 text-gray-200">
-                  <LinkedinIcon className="w-4 h-4" />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <a
-                    href="/about"
-                    className="hover:text-gray-50 transition-colors"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/contact"
-                    className="hover:text-gray-50 transition-colors"
-                  >
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/faq"
-                    className="hover:text-gray-50 transition-colors"
-                  >
-                    FAQ
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <a
-                    href="/privacy-policy"
-                    className="hover:text-gray-50 transition-colors"
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500">
-            <p>&copy; 2025 Aqwaya. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
