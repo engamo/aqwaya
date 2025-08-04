@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,31 +21,33 @@ export default function Header() {
               height={40}
               className="w-10 h-10"
             />
-            <span className="text-3xl font-semibold text-gray-900 ml-2">
-              Aqwaya
-            </span>
+            <span className="text-3xl font-semibold text-gray-900">Aqwaya</span>
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-2">
             <Button className="bg-white hover:bg-gray-200 py-1 px-4">
-              <a href="/about" className="text-gray-800 font-semibold">
+              <Link href="/" className="text-gray-800 font-semibold">
+                Home
+              </Link>
+            </Button>
+            <Button className="bg-white hover:bg-gray-200 py-1 px-4">
+              <Link href="/about" className="text-gray-800 font-semibold">
                 About
-              </a>
+              </Link>
             </Button>
             <Button className="bg-white hover:bg-gray-200 py-1 px-4">
-              <a href="/faq" className="text-gray-800 font-semibold">
+              <Link href="/faq" className="text-gray-800 font-semibold">
                 FAQ
-              </a>
+              </Link>
             </Button>
             <Button className="bg-white hover:bg-gray-200 py-1 px-4">
-              <a href="/contact" className="text-gray-800 font-semibold">
+              <Link href="/contact" className="text-gray-800 font-semibold">
                 Contact
-              </a>
+              </Link>
             </Button>
             <Button
-              className="text-white font-semibold"
-              style={{ backgroundColor: "#2C2E66" }}
+              className="text-white font-semibold bg-[#2C2E66] hover:bg-[rgb(44,46,200)]"
               onClick={() =>
                 document
                   .getElementById("waitlist-form")
@@ -70,15 +73,18 @@ export default function Header() {
         {/* Mobile Nav Links */}
         {isOpen && (
           <div className="md:hidden flex flex-col space-y-2 pb-4">
-            <a href="/about" className="text-gray-800 font-semibold block">
+            <Link href="/" className="text-gray-800 font-semibold block">
+              Home
+            </Link>
+            <Link href="/about" className="text-gray-800 font-semibold block">
               About
-            </a>
-            <a href="/faq" className="text-gray-800 font-semibold block">
+            </Link>
+            <Link href="/faq" className="text-gray-800 font-semibold block">
               FAQ
-            </a>
-            <a href="/contact" className="text-gray-800 font-semibold block">
+            </Link>
+            <Link href="/contact" className="text-gray-800 font-semibold block">
               Contact
-            </a>
+            </Link>
             <button
               className="bg-[#2C2E66] text-white py-2 rounded-md"
               onClick={() => {
