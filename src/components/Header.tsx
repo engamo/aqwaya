@@ -62,7 +62,7 @@ export default function Header() {
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-gray-800" />
               ) : (
                 <Menu className="w-6 h-6 text-gray-800" />
               )}
