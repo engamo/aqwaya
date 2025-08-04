@@ -44,7 +44,7 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Contact Form */}
-            <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0">
+            <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0 text-gray-800">
               <CardHeader className="flex-row gap-3">
                 <div>
                   <Mail className="text-blue-500" />
