@@ -632,7 +632,7 @@ export default function Landing() {
             </Card>
 
             {/* Info Section */}
-            <div className="space-y-6">
+            <div className="space-y-6 text-gray-800">
               <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0">
                 <CardHeader className="flex-row items-center space-x-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center bg-blue-500">

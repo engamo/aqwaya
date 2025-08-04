@@ -64,7 +64,7 @@ export default function Header() {
               {isOpen ? (
                 <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-gray-800" />
               )}
             </button>
           </div>
