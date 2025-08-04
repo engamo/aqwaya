@@ -111,12 +111,14 @@ export default function Contact() {
 
             {/* Info Section */}
             <div className="space-y-6 text-gray-600">
-              <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0 text-gray-600">
+              <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0 text-gray-700">
                 <CardHeader className="flex-row items-center space-x-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500">
                     <MessageSquare className="w-6 h-6 text-white" />
                   </div>
-                  <CardTitle className="text-gray-900">General Inquiries</CardTitle>
+                  <CardTitle className="text-gray-900">
+                    General Inquiries
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   Have questions about our platform or need help getting
@@ -124,7 +126,7 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0 text-gray-600">
+              <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0 text-gray-700">
                 <CardHeader className="flex-row items-center space-x-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center bg-green-500">
                     <Clock className="w-6 h-6 text-green-100" />
@@ -138,12 +140,14 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0 text-gray-600">
+              <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0 text-gray-700">
                 <CardHeader className="flex-row items-center space-x-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500">
                     <Info className="w-6 h-6 text-white" />
                   </div>
-                  <CardTitle className="text-gray-900">What can we help you with?</CardTitle>
+                  <CardTitle className="text-gray-900">
+                    What can we help you with?
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
