@@ -27,11 +27,6 @@ export default function Header() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-2">
             <Button className="bg-white hover:bg-gray-200 py-1 px-4">
-              <Link href="/" className="text-gray-800 font-semibold">
-                Home
-              </Link>
-            </Button>
-            <Button className="bg-white hover:bg-gray-200 py-1 px-4">
               <Link href="/about" className="text-gray-800 font-semibold">
                 About
               </Link>
@@ -60,13 +55,27 @@ export default function Header() {
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? (
+            {isOpen ? (
+              <button onClick={() => setIsOpen(false)}>
                 <X className="w-6 h-6 text-gray-800" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-800" />
-              )}
-            </button>
+              </button>
+            ) : (
+              <div className="flex items-center justify-center space-x-2">
+                <Button
+                  className="text-white font-semibold bg-[#2C2E66] hover:bg-[rgb(44,46,200)]"
+                  onClick={() =>
+                    document
+                      .getElementById("waitlist-form")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  Join Waitlist
+                </Button>
+                <button onClick={() => setIsOpen(true)}>
+                  <Menu className="w-6 h-6 text-gray-800" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
