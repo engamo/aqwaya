@@ -17,9 +17,9 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Aqwaya Logo"
-              width={80}
-              height={80}
-              className="w-20 h-20"
+              width={30}
+              height={30}
+              className="w-8 h-8"
             />
             <span className="text-2xl font-semibold text-blue-900">Aqwaya</span>
           </div>

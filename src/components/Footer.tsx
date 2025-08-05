@@ -13,8 +13,8 @@ export default function Footer() {
               <Image
                 src="/footer-logo.png"
                 alt="Aqwaya Logo"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
                 className="w-8 h-8"
               />
               <span className="text-2xl font-semibold text-gray-50">
