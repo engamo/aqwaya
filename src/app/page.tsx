@@ -371,11 +371,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
               <div className="relative w-full aspect-[16/10] sm:h-[512px] rounded-xl overflow-hidden">
                 <Image
-                  src="/dashboard-preview.jpg"
+                  src="/dashboard.PNG"
                   alt="Aqwaya Dashboard Preview"
                   fill
                   className="object-contain rounded-xl"
                 />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/50 z-10 rounded-xl" />
               </div>
             </div>
 

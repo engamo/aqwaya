@@ -17,11 +17,17 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Aqwaya Logo"
+<<<<<<< HEAD
               width={80}
               height={80}
               className="w-20 h-20"
+=======
+              width={40}
+              height={40}
+              className="w-8 h-8"
+>>>>>>> ed01f404a5410a8a85446388bb38c2c26bc4a839
             />
-            <span className="text-3xl font-semibold text-gray-900">Aqwaya</span>
+            <span className="text-2xl font-semibold text-blue-900">Aqwaya</span>
           </div>
 
           {/* Desktop Nav */}
@@ -55,13 +61,27 @@ export default function Header() {
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? (
+            {isOpen ? (
+              <button onClick={() => setIsOpen(false)}>
                 <X className="w-6 h-6 text-gray-800" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-800" />
-              )}
-            </button>
+              </button>
+            ) : (
+              <div className="flex items-center justify-center space-x-2">
+                <Button
+                  className="text-white font-semibold bg-[#2C2E66] hover:bg-[rgb(44,46,200)]"
+                  onClick={() =>
+                    document
+                      .getElementById("waitlist-form")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  Join Waitlist
+                </Button>
+                <button onClick={() => setIsOpen(true)}>
+                  <Menu className="w-6 h-6 text-gray-800" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
