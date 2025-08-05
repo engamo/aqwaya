@@ -17,7 +17,7 @@ export default function Contact() {
     subject: "",
     message: "",
   });
-  const whatsappNumber = "2347067812926";
+  const whatsappNumber = "2349021835909";
 
   const getWhatsAppLink = () => {
     const { name, email, subject, message } = form;
@@ -62,7 +62,7 @@ export default function Contact() {
                 <div>
                   <Mail className="text-blue-500" />
                 </div>
-                <CardTitle>Contact us via WhatsApp</CardTitle>
+                <CardTitle>Message us on Whatsapp</CardTitle>
               </CardHeader>
               <CardContent>
                 <form className="space-y-8" onSubmit={handleSubmit}>
@@ -71,6 +71,7 @@ export default function Contact() {
                     <Input
                       id="name"
                       name="name"
+                      className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       value={form.name}
                       placeholder="Your full name"
                       onChange={handleChange}
@@ -83,6 +84,7 @@ export default function Contact() {
                       id="email"
                       name="email"
                       type="email"
+                      className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       value={form.email}
                       placeholder="your.email@example.com"
                       onChange={handleChange}
@@ -94,6 +96,7 @@ export default function Contact() {
                     <Input
                       id="subject"
                       name="subject"
+                      className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       value={form.subject}
                       placeholder="What's this about?"
                       onChange={handleChange}
@@ -118,7 +121,7 @@ export default function Contact() {
                     disabled={!form.name || !form.message || !form.email}
                   >
                     <FaWhatsapp className="w-5 h-5" />
-                    Message us on WhatsApp
+                    Start Chat
                   </Button>
                 </form>
               </CardContent>

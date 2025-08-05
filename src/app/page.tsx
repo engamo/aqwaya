@@ -66,18 +66,20 @@ export default function Landing() {
     }
   };
 
-  if (isSubmitted) {
-    return (
-      <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
-        <p className="text-green-800 font-semibold">
-          🎉 Success! You&apos;ve been added to the waitlist.
-        </p>
-        <p className="text-green-600 text-sm mt-1">
-          Check your email for confirmation.
-        </p>
+  const SuccessMessage = () => (
+    <div className="text-center">
+      <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-green-100">
+        <CheckCircle className="w-8 h-8 text-green-600" />
       </div>
-    );
-  }
+      <h3 className="text-xl font-semibold mb-2 text-gray-900">
+        🎉 Success! You&apos;ve been added to the waitlist.
+      </h3>
+      <p className="text-sm text-gray-600">
+        Thank you for joining our waitlist. We&apos;ll notify you as soon as
+        Aqwaya is ready for early access.
+      </p>
+    </div>
+  );
 
   const features = [
     {
@@ -228,102 +230,84 @@ export default function Landing() {
 
             {/* Waitlist Form */}
             <div id="waitlist-form" className="max-w-md mx-auto mb-12">
-              {!isSubmitted ? (
-                <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm">
-                  <CardHeader className="pb-4">
-                    <CardTitle className="text-center flex items-center justify-center space-x-2">
-                      <Heart className="w-5 h-5 text-red-500" />
-                      <span className="text-gray-900">Join the Waitlist</span>
-                    </CardTitle>
-                    <p className="text-sm text-center text-gray-600">
-                      Be the first to experience AI-powered marketing automation
-                    </p>
-                  </CardHeader>
-                  <CardContent>
-                    {!isSubmitted ? (
-                      <form onSubmit={handleSubmit} className="space-y-4">
-                        <div>
-                          <Label htmlFor="firstName" className="text-gray-700">
-                            First Name
-                          </Label>
-                          <Input
-                            id="firstName"
-                            type="text"
-                            value={firstName}
-                            onChange={(e) => setFirstName(e.target.value)}
-                            required
-                            placeholder="Enter your first name"
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="lastName" className="text-gray-700">
-                            Last Name
-                          </Label>
-                          <Input
-                            id="lastName"
-                            type="text"
-                            value={lastName}
-                            onChange={(e) => setLastName(e.target.value)}
-                            placeholder="Enter your last name"
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="email" className="text-gray-700">
-                            Email Address
-                          </Label>
-                          <Input
-                            id="email"
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            placeholder="Enter your email"
-                          />
-                        </div>
-                        <Button
-                          type="submit"
-                          className="w-full text-white font-semibold py-3"
-                          style={{ backgroundColor: "#2C2E66" }}
-                        >
-                          Join the Waitlist
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                      </form>
-                    ) : (
-                      <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
-                        🎉 Success! Check your email for confirmation.
+              <Card className="shadow-lg border-0 bg-white/90 backdrop-blur-sm">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-center flex items-center justify-center space-x-2">
+                    <Heart className="w-5 h-5 text-red-500" />
+                    <span className="text-gray-900">Join the Waitlist</span>
+                  </CardTitle>
+                  <p className="text-sm text-center text-gray-600">
+                    Be the first to experience AI-powered marketing automation
+                  </p>
+                </CardHeader>
+
+                <CardContent className="p-6">
+                  {!isSubmitted ? (
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div>
+                        <Label htmlFor="firstName" className="text-gray-700">
+                          First Name
+                        </Label>
+                        <Input
+                          id="firstName"
+                          type="text"
+                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          value={firstName}
+                          onChange={(e) => setFirstName(e.target.value)}
+                          required
+                          placeholder="Enter your first name"
+                        />
                       </div>
-                    )}
-                    <div className="flex items-center justify-center space-x-6 mt-6 text-sm text-gray-500">
-                      <div className="flex items-center space-x-1">
-                        <Shield className="w-4 h-4 text-green-500" />
-                        <span>Free forever plan</span>
+                      <div>
+                        <Label htmlFor="lastName" className="text-gray-700">
+                          Last Name
+                        </Label>
+                        <Input
+                          id="lastName"
+                          type="text"
+                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          value={lastName}
+                          onChange={(e) => setLastName(e.target.value)}
+                          placeholder="Enter your last name"
+                        />
                       </div>
-                      <div className="flex items-center space-x-1">
-                        <Clock className="w-4 h-4 text-blue-500" />
-                        <span>Early access</span>
+                      <div>
+                        <Label htmlFor="email" className="text-gray-700">
+                          Email Address
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                          placeholder="Enter your email"
+                        />
                       </div>
+                      <Button
+                        type="submit"
+                        className="w-full text-white font-semibold py-3 bg-[#2C2E66] hover:bg-[rgb(44,46,200)] transition-colors duration-200"
+                      >
+                        Join the Waitlist
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </form>
+                  ) : (
+                    <SuccessMessage />
+                  )}
+                  <div className="flex items-center justify-center space-x-6 mt-6 text-sm text-gray-500">
+                    <div className="flex items-center space-x-1">
+                      <Shield className="w-4 h-4 text-green-500" />
+                      <span>Free forever plan</span>
                     </div>
-                  </CardContent>
-                </Card>
-              ) : (
-                <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm">
-                  <CardContent className="pt-6">
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-green-100">
-                        <CheckCircle className="w-8 h-8 text-green-600" />
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                        You&apos;re on the list! 🎉
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        Thank you for joining our waitlist. We&apos;ll notify
-                        you as soon as Aqwaya is ready for early access.
-                      </p>
+                    <div className="flex items-center space-x-1">
+                      <Clock className="w-4 h-4 text-blue-500" />
+                      <span>Early access</span>
                     </div>
-                  </CardContent>
-                </Card>
-              )}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Trust Indicators */}
