@@ -37,34 +37,28 @@ export default function Landing() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("FNAME", firstName);
-    formData.append("LNAME", lastName);
-    formData.append("EMAIL", email);
+  try {
+    const res = await fetch("/api/waitlist", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ firstName, lastName, phone, email }),
+    });
 
-    // Anti-bot hidden field required by Mailchimp
-    formData.append("b_49ff03a1ea102a3403d36d923_2c86b8f052", "");
+    const data = await res.json();
 
-    try {
-      await fetch(
-        "https://gmail.us17.list-manage.com/subscribe/post-json?u=49ff03a1ea102a3403d36d923&id=2c86b8f052&c=?",
-        {
-          method: "POST",
-          mode: "no-cors", // Required since Mailchimp doesn't support CORS
-          body: formData,
-        }
-      );
-
-      // Assume success if request didn't throw
+    if (data.success) {
       setIsSubmitted(true);
-    } catch (error) {
-      console.error("Mailchimp submission error:", error);
-      alert("There was a problem joining the waitlist. Please try again.");
+    } else {
+      alert(data.message || "Submission failed");
     }
-  };
+  } catch (error) {
+    console.error("Waitlist error:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
 
   const SuccessMessage = () => (
     <div className="text-center">
@@ -191,6 +185,9 @@ export default function Landing() {
     },
   ];
 
+  const [phone, setPhone] = useState("");
+
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       {/* Header */}
@@ -243,7 +240,9 @@ export default function Landing() {
 
                 <CardContent className="p-6">
                   {!isSubmitted ? (
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
+                    {/* First and Last Name side by side */}
+                    <div className="grid grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="firstName" className="text-gray-700">
                           First Name
@@ -251,11 +250,11 @@ export default function Landing() {
                         <Input
                           id="firstName"
                           type="text"
-                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           value={firstName}
                           onChange={(e) => setFirstName(e.target.value)}
                           required
-                          placeholder="Enter your first name"
+                          placeholder="Enter first name"
+                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                       </div>
                       <div>
@@ -265,34 +264,51 @@ export default function Landing() {
                         <Input
                           id="lastName"
                           type="text"
-                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           value={lastName}
                           onChange={(e) => setLastName(e.target.value)}
-                          placeholder="Enter your last name"
+                          placeholder="Enter last name"
+                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                       </div>
-                      <div>
-                        <Label htmlFor="email" className="text-gray-700">
-                          Email Address
-                        </Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                          placeholder="Enter your email"
-                        />
-                      </div>
-                      <Button
-                        type="submit"
-                        className="w-full text-white font-semibold py-3 bg-[#2C2E66] hover:bg-[rgb(44,46,200)] transition-colors duration-200"
-                      >
-                        Join the Waitlist
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </form>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="phone" className="text-gray-700">
+                        Phone Number
+                      </Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="Enter phone number"
+                        className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="email" className="text-gray-700">
+                        Email Address
+                      </Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        placeholder="Enter your email"
+                        className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full text-white font-semibold py-3 bg-[#2C2E66] hover:bg-[rgb(44,46,200)] transition-colors duration-200"
+                    >
+                      Join the Waitlist
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </form>
                   ) : (
                     <SuccessMessage />
                   )}

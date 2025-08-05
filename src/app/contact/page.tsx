@@ -17,6 +17,9 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const whatsappNumber = "2349021835909";
 
   const getWhatsAppLink = () => {
@@ -31,7 +34,7 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!form.name || !form.message || !form.email) {
@@ -39,7 +42,28 @@ export default function Contact() {
       return;
     }
 
-    window.open(getWhatsAppLink(), "_blank");
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setIsSubmitted(true);
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        alert(data.message || "Message could not be sent.");
+      }
+    } catch (error) {
+      console.error("Contact form error:", error);
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -56,74 +80,91 @@ export default function Contact() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Contact Form */}
             <Card className="bg-white/90 backdrop-blur-sm shadow-lg border-0 text-gray-800">
               <CardHeader className="flex-row gap-3">
                 <div>
                   <Mail className="text-blue-500" />
                 </div>
-                <CardTitle>Message us on Whatsapp</CardTitle>
+                <CardTitle>Send us a message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-8" onSubmit={handleSubmit}>
-                  <div>
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      value={form.name}
-                      placeholder="Your full name"
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email Address</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      value={form.email}
-                      placeholder="your.email@example.com"
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      value={form.subject}
-                      placeholder="What's this about?"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="message">Message</Label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      value={form.message}
-                      placeholder="Tell us more about your inquiry"
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+              <form className="space-y-8" onSubmit={handleSubmit}>
+                <div>
+                  <Label htmlFor="name">Full Name</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={form.name}
+                    placeholder="Your full name"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="email">Email Address</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    placeholder="your.email@example.com"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    value={form.subject}
+                    placeholder="What's this about?"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="message">Message</Label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={form.message}
+                    placeholder="Tell us more about your inquiry"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Button
                     type="submit"
-                    className="w-full bg-green-600 hover:bg-green-800 cursor-pointer text-white text-lg flex items-center justify-center gap-2 disabled:opacity-100 disabled:cursor-not-allowed"
-                    disabled={!form.name || !form.message || !form.email}
+                    className={`flex-1 text-white font-semibold py-3 transition-colors duration-200 ${
+                      isSubmitted
+                        ? "bg-green-600 hover:bg-green-700"
+                        : "bg-blue-600 hover:bg-blue-700"
+                    }`}
+                    disabled={loading || isSubmitted}
+                  >
+                    {loading
+                      ? "Submitting..."
+                      : isSubmitted
+                      ? "Submitted!"
+                      : "Send Message"}
+                  </Button>
+
+                  <span className="text-gray-500 text-sm font-medium">OR</span>
+
+                  <Button
+                    type="button"
+                    onClick={() => window.open(getWhatsAppLink(), "_blank")}
+                    className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 flex items-center justify-center gap-2"
                   >
                     <FaWhatsapp className="w-5 h-5" />
-                    Start Chat
+                    Message us on WhatsApp
                   </Button>
-                </form>
+                </div>
+              </form>
               </CardContent>
             </Card>
 

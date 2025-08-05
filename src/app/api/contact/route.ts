@@ -2,10 +2,13 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
-  const { firstName, lastName, phone, email } = await req.json();
+  const { name, email, subject, message } = await req.json();
 
-  if (!email) {
-    return NextResponse.json({ success: false, message: "Email is required" }, { status: 400 });
+  if (!email || !message || !name) {
+    return NextResponse.json(
+      { success: false, message: "Name, Email, and Message are required" },
+      { status: 400 }
+    );
   }
 
   try {
@@ -20,11 +23,11 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         email,
         attributes: {
-          FIRSTNAME: firstName,
-          LASTNAME: lastName,
-          PHONE: phone,
+          FULLNAME: name,
+          SUBJECT: subject,
+          MESSAGE: message,
         },
-        listIds: [5],
+        listIds: [7],
         updateEnabled: true,
       }),
     });
@@ -38,14 +41,16 @@ export async function POST(req: Request) {
     });
 
     await transporter.sendMail({
-      from: `"Aqwaya Waitlist" <${process.env.GMAIL_USER}>`,
+      from: `"Aqwaya Contact" <${process.env.GMAIL_USER}>`,
       to: process.env.ADMIN_EMAIL,
-      subject: "New Waitlist Signup - Aqwaya",
+      subject: `New Contact Message from ${name}`,
       html: `
-        <h2>New Waitlist Signup</h2>
-        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <h2>New Contact Message</h2>
+        <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "N/A"}</p>
+        <p><strong>Subject:</strong> ${subject || "N/A"}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
       `,
     });
 

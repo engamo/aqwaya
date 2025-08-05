@@ -17,20 +17,15 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Aqwaya Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10"
+              width={80}
+              height={80}
+              className="w-20 h-20"
             />
             <span className="text-3xl font-semibold text-gray-900">Aqwaya</span>
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-2">
-            <Button className="bg-white hover:bg-gray-200 py-1 px-4">
-              <Link href="/" className="text-gray-800 font-semibold">
-                Home
-              </Link>
-            </Button>
             <Button className="bg-white hover:bg-gray-200 py-1 px-4">
               <Link href="/about" className="text-gray-800 font-semibold">
                 About
