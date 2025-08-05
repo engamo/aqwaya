@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function Header() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -26,6 +28,13 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-2">
+            {pathname !== "/" && (
+              <Button className="bg-white hover:bg-gray-200 py-1 px-4">
+                <Link href="/" className="text-gray-800 font-semibold">
+                  Home
+                </Link>
+              </Button>
+            )}
             <Button className="bg-white hover:bg-gray-200 py-1 px-4">
               <Link href="/about" className="text-gray-800 font-semibold">
                 About

@@ -37,28 +37,28 @@ export default function Landing() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  try {
-    const res = await fetch("/api/waitlist", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ firstName, lastName, phone, email }),
-    });
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ firstName, lastName, phone, email }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (data.success) {
-      setIsSubmitted(true);
-    } else {
-      alert(data.message || "Submission failed");
+      if (data.success) {
+        setIsSubmitted(true);
+      } else {
+        alert(data.message || "Submission failed");
+      }
+    } catch (error) {
+      console.error("Waitlist error:", error);
+      alert("Something went wrong. Please try again.");
     }
-  } catch (error) {
-    console.error("Waitlist error:", error);
-    alert("Something went wrong. Please try again.");
-  }
-};
+  };
 
   const SuccessMessage = () => (
     <div className="text-center">
@@ -132,7 +132,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     {
       question: "When will Aqwaya be available?",
       answer:
-        "We're currently in the final stages of development and testing. Beta access will be available to waitlist members in early 2024, with full launch following shortly after. Join our waitlist to be among the first to experience the platform.",
+        "We're currently in the development stage and testing. Beta access will be available to waitlist members in October 2025, with full launch following shortly after. Join our waitlist to be among the first to experience the platform.",
     },
     {
       question: "What makes Aqwaya different from other marketing tools?",
@@ -187,7 +187,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   const [phone, setPhone] = useState("");
 
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       {/* Header */}
@@ -240,75 +239,78 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
                 <CardContent className="p-6">
                   {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
-                    {/* First and Last Name side by side */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="firstName" className="text-gray-700">
-                          First Name
-                        </Label>
-                        <Input
-                          id="firstName"
-                          type="text"
-                          value={firstName}
-                          onChange={(e) => setFirstName(e.target.value)}
-                          required
-                          placeholder="Enter first name"
-                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="lastName" className="text-gray-700">
-                          Last Name
-                        </Label>
-                        <Input
-                          id="lastName"
-                          type="text"
-                          value={lastName}
-                          onChange={(e) => setLastName(e.target.value)}
-                          placeholder="Enter last name"
-                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="phone" className="text-gray-700">
-                        Phone Number
-                      </Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        placeholder="Enter phone number"
-                        className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="email" className="text-gray-700">
-                        Email Address
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        placeholder="Enter your email"
-                        className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full text-white font-semibold py-3 bg-[#2C2E66] hover:bg-[rgb(44,46,200)] transition-colors duration-200"
+                    <form
+                      onSubmit={handleSubmit}
+                      className="space-y-4 max-w-md mx-auto"
                     >
-                      Join the Waitlist
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </form>
+                      {/* First and Last Name side by side */}
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="firstName" className="text-gray-700">
+                            First Name
+                          </Label>
+                          <Input
+                            id="firstName"
+                            type="text"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            required
+                            placeholder="Enter first name"
+                            className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="lastName" className="text-gray-700">
+                            Last Name
+                          </Label>
+                          <Input
+                            id="lastName"
+                            type="text"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            placeholder="Enter last name"
+                            className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="phone" className="text-gray-700">
+                          Phone Number
+                        </Label>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="Enter phone number"
+                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="email" className="text-gray-700">
+                          Email Address
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                          placeholder="Enter your email"
+                          className="border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        className="w-full text-white font-semibold py-3 bg-[#2C2E66] hover:bg-[rgb(44,46,200)] transition-colors duration-200"
+                      >
+                        Join the Waitlist
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </form>
                   ) : (
                     <SuccessMessage />
                   )}
