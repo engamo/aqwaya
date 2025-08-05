@@ -132,7 +132,9 @@ export default function FAQPage() {
 
         {/* Still Have Questions */}
         <div className="bg-white mt-16 p-6 text-center rounded-md border border-gray-200 shadow-sm">
-          <h2 className="text-xl font-semibold mb-2">Still Have Questions?</h2>
+          <h2 className="text-xl font-semibold mb-2 text-gray-800">
+            Still Have Questions?
+          </h2>
           <p className="text-gray-600 mb-4">
             Can&apos;t find the answer you&apos;re looking for? Our team is here
             to help.

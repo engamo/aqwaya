@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { Mail, Twitter, LinkedinIcon } from "lucide-react";
+import { Mail } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -30,10 +32,10 @@ export default function Footer() {
                 <Mail className="w-4 h-4" />
               </div>
               <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 text-gray-200">
-                <Twitter className="w-4 h-4" />
+                <FaXTwitter className="w-4 h-4" />
               </div>
               <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 text-gray-200">
-                <LinkedinIcon className="w-4 h-4" />
+                <FaLinkedin className="w-4 h-4" />
               </div>
             </div>
           </div>

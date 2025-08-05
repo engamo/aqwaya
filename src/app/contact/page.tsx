@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { FaWhatsapp } from "react-icons/fa";
 import { MessageSquare, Clock, Info, Mail } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -16,6 +17,13 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const whatsappNumber = "2347067812926";
+
+  const getWhatsAppLink = () => {
+    const { name, email, subject, message } = form;
+    const text = `Hello, my name is ${name}.\n\nSubject: ${subject}\n\nMessage: ${message}\n\nEmail: ${email}`;
+    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,8 +33,13 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic (e.g. email API or backend)
-    console.log("Submitting:", form);
+
+    if (!form.name || !form.message || !form.email) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    window.open(getWhatsAppLink(), "_blank");
   };
 
   return (
@@ -49,7 +62,7 @@ export default function Contact() {
                 <div>
                   <Mail className="text-blue-500" />
                 </div>
-                <CardTitle>Send us a Message</CardTitle>
+                <CardTitle>Contact us via WhatsApp</CardTitle>
               </CardHeader>
               <CardContent>
                 <form className="space-y-8" onSubmit={handleSubmit}>
@@ -101,9 +114,11 @@ export default function Contact() {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-indigo-800 text-white"
+                    className="w-full bg-green-600 hover:bg-green-800 cursor-pointer text-white text-lg flex items-center justify-center gap-2 disabled:opacity-100 disabled:cursor-not-allowed"
+                    disabled={!form.name || !form.message || !form.email}
                   >
-                    Send Message
+                    <FaWhatsapp className="w-5 h-5" />
+                    Message us on WhatsApp
                   </Button>
                 </form>
               </CardContent>
