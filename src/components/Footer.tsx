@@ -15,9 +15,9 @@ export default function Footer() {
                 alt="Aqwaya Logo"
                 width={40}
                 height={40}
-                className="w-10 h-10"
+                className="w-8 h-8"
               />
-              <span className="text-3xl font-semibold text-gray-50">
+              <span className="text-2xl font-semibold text-gray-50">
                 Aqwaya
               </span>
             </div>
