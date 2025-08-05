@@ -21,7 +21,7 @@ export default function Header() {
               height={40}
               className="w-8 h-8"
             />
-            <span className="text-2xl font-semibold text-gray-800">Aqwaya</span>
+            <span className="text-2xl font-semibold text-blue-900">Aqwaya</span>
           </div>
 
           {/* Desktop Nav */}
