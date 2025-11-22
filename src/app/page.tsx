@@ -305,7 +305,7 @@ export default function Landing() {
 
                       <Button
                         type="submit"
-                        className="w-full text-white font-semibold py-3 bg-[#2C2E66] hover:bg-[rgb(44,46,200)] transition-colors duration-200"
+                        className="w-full text-white font-semibold py-3 bg-[#2C2E66] hover:bg-[rgb(44,46,200)] transition-colors duration-200 cursor-pointer flex items-center justify-center"
                       >
                         Join the Waitlist
                         <ArrowRight className="w-4 h-4 ml-2" />
