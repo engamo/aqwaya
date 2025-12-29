@@ -132,7 +132,7 @@ export default function Landing() {
     {
       question: "When will Aqwaya be available?",
       answer:
-        "We're currently in the development stage and testing. Beta access will be available to waitlist members in October 2025, with full launch following shortly after. Join our waitlist to be among the first to experience the platform.",
+        "We're currently in the development stage and testing. Beta access will be available to waitlist members in March 2026, with full launch following shortly after. Join our waitlist to be among the first to experience the platform.",
     },
     {
       question: "What makes Aqwaya different from other marketing tools?",
