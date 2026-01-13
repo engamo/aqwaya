@@ -5,7 +5,10 @@ export async function POST(req: Request) {
   const { firstName, lastName, phone, email } = await req.json();
 
   if (!email) {
-    return NextResponse.json({ success: false, message: "Email is required" }, { status: 400 });
+    return NextResponse.json(
+      { success: false, message: "Email is required" },
+      { status: 400 }
+    );
   }
 
   try {
@@ -50,11 +53,13 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true });
-    } catch (error: any) {
-      console.error("FULL ERROR:", error);
-      return NextResponse.json(
-        { success: false, message: error.message || "Server error" },
-        { status: 500 }
-      );
-    }
+  } catch (error: unknown) {
+    console.error("FULL ERROR:", error);
+    const errorMessage =
+      error instanceof Error ? error.message : "Server error";
+    return NextResponse.json(
+      { success: false, message: errorMessage },
+      { status: 500 }
+    );
+  }
 }
