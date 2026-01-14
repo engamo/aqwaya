@@ -12,7 +12,6 @@ import {
   Mail,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
-import { cn } from "@/lib/utils";
 
 export default function PrivacyPolicy() {
   return (
